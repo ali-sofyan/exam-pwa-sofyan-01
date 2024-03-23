@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 import {
     BREAKPOINTS, COLORS, FONT_FAMILY, FONT_SIZE, LINE_HEIGHT, SPACING, ZINDEX,
-} from './core/theme/vars';
+} from './src/theme/vars';
 
 const plugin = require('tailwindcss/plugin');
 
@@ -44,6 +44,7 @@ module.exports = {
                 primary: COLORS.primary,
                 secondary: COLORS.secondary,
                 neutral: COLORS.neutral,
+                red: COLORS.red
             },
             lineHeight: LINE_HEIGHT,
             fontSize: FONT_SIZE,
@@ -103,6 +104,9 @@ module.exports = {
                 'hamburger-drawer-in': 'hamburger-drawer 500ms cubic-bezier(0.4, 0, 0.2, 1);',
                 'hamburger-drawer-out': 'hamburger-drawer-close 500ms cubic-bezier(0.4, 0, 0.2, 1);',
             },
+            letterSpacing: {
+                tight: '-.0125em',
+            },
         },
         screens: {
             xs: `${BREAKPOINTS.xs}px`,
@@ -124,7 +128,7 @@ module.exports = {
         require('@tailwindcss/forms')({
             strategy: 'class',
         }),
-        require('@tailwindcss/typography'),
+        require('@tailwindcss/typography')({ className: 'Normal' }),
         plugin(({ addUtilities }) => {
             addUtilities({
                 '.scrollbar-none': {
